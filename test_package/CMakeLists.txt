@@ -28,4 +28,11 @@ install (
   DESTINATION share/${PROJECT_NAME}
 )
 
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+add_executable(command_publisher src/command_publisher.cpp)
+ament_target_dependencies(command_publisher rclcpp std_msgs)
+install(TARGETS command_publisher DESTINATION lib/${PROJECT_NAME})
+
+
 ament_package()
