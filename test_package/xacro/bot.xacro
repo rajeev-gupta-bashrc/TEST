@@ -29,9 +29,9 @@
     <inertial>
       <origin xyz="3.0876154e-04 0.0000000e+00 -1.2176461e-04" />
       <mass value="1" />
-      <inertia ixx="1.2505234e-05" ixy="0.0" ixz="-1.7855208e-07"
-               iyy="2.1898364e-05" iyz="0.0"
-               izz="1.9267361e-05" />
+      <inertia ixx="1.2505234e-02" ixy="0.0" ixz="-1.7855208e-07"
+               iyy="2.1898364e-02" iyz="0.0"
+               izz="1.9267361e-02" />
     </inertial>
   </link>
 
@@ -39,7 +39,8 @@
     <visual>
       <origin xyz="0 0 0"  rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="1" length="1"/>
+        <!-- <cylinder radius="1" length="1"/> -->
+        <box size="1 1 1"/>
       </geometry>
       <!-- <material name="grey"/> -->
     </visual>
@@ -47,7 +48,8 @@
     <collision>
       <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="1" length="1"/>
+        <!-- <cylinder radius="1" length="1"/> -->
+        <box size="1 1 1"/>
       </geometry>
     </collision>
 
@@ -65,7 +67,7 @@
     <child link="child_link"/>
     <origin xyz="0.0 0.0 2.5" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit velocity="4.8" effort="1" lower="1000" upper="1000"/> 
+    <limit velocity="10" effort="100" lower="-1000" upper="1000"/> 
   </joint>
 
 
@@ -75,7 +77,7 @@
     </hardware>
     <joint name="base_link_plate_joint">
       <command_interface name="position">
-        <param name="min">1000</param>
+        <param name="min">-1000</param>
         <param name="max">1000</param>
       </command_interface>
       <state_interface name="position">
